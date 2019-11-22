@@ -9,15 +9,14 @@
 	}
 
 	css = document.createElement("style")
-	css.innerHTML = "#alertOut{position: fixed;top: 0;right: 0;width: 100%;height: 100%;background-color: rgba(0,0,0,0.5);display: flex;justify-content: center;align-items: center;overflow: hidden;float: right;display: none;}#alertIn{background-color: white;box-shadow: 0px 0px 5px rgba(0,0,0,0.5);overflow: hidden;padding: 10;max-height: 300;max-width: 90%;max-width: 800;overflow-y: hidden;margin: 20;padding:10}	#alertIn *{max-width: 100%;max-height: 100%;}.invisible{display: none;}.alertFull{height:300;width:800}"
+	css.innerHTML = "#alertOut{position: fixed;top: 0;right: 0;width: 100%;height: 100%;background-color: rgba(0,0,0,0.5);display: flex;justify-content: center;align-items: center;overflow: hidden;float: right;display: none;}#alertIn{background-color: white;box-shadow: 0px 0px 5px rgba(0,0,0,0.5);overflow: hidden;padding: 10;max-height: 300;max-width: 90%;max-width: 800;overflow-y: hidden;margin: 20;padding:10}	#alertIn *{max-width: 100%;max-height: 80%;}.invisible{display: none;}.alertFull{height:300;width:800}"
 
 	document.body.appendChild(css)
 
 	alertOut.style.opacity=0
 
-	function ngMostrar(){
+	function ngMostrar(a,b){
 		tempo = 2
-
 
 		alertIn.style.overflowY="hidden"
 		alertOut.style.transition=tempo/10+"s"
@@ -32,8 +31,15 @@
 
 		setTimeout(()=>{		
 			alertIn.style.transition=tempo-1+"s"
-			alertIn.style.maxHeight=350
-			// alertIn.style.overflowY="auto"
+
+			if(typeof(a) == 'undefined' && typeof(b) == 'undefined'){
+				alertIn.style.maxHeight=350
+			}
+			else{
+				alertIn.style.transition=1+"s"
+				alertIn.style.maxWidth=a
+				alertIn.style.maxHeight=b
+			}
 		})
 
 		setTimeout(()=>{alertIn.style.overflowY="auto"},600)
@@ -48,7 +54,7 @@
 		},tempo*100)
 	}
 
-	function alertar(n){
+	function alertar(n,a,b){
 
 		alertIn.innerHTML = n
 
@@ -56,11 +62,14 @@
 			el = document.querySelector(n)
 			alertIn.innerHTML = el.outerHTML
 		}
-		else{
-			console.log('nok')
-		}
 
-		ngMostrar()
+		ngMostrar(a,b)
+
+		// if()
+			// alertIn.style.maxWidth = a
+			// alertIn.style.maxHeight = b
+
+
 	}
 
 	alertIn.onclick=e=>{e.stopPropagation()}
