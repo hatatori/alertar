@@ -1,9 +1,12 @@
 	// <div id="alertOut" onclick="ngSumir()"><div id="alertIn"></div></div>
-	div = document.createElement("div")
-	div.setAttribute("onclick","ngSumir()")
-	div.id="alertOut"
-	div.innerHTML = "<div id='alertIn'></div>"
-	document.body.appendChild(div)
+	
+	if(typeof(alertOut) == 'undefined'){
+		div = document.createElement("div")
+		div.setAttribute("onclick","ngSumir()")
+		div.id="alertOut"
+		div.innerHTML = "<div id='alertIn'></div>"
+		document.body.appendChild(div)
+	}
 
 	css = document.createElement("style")
 	css.innerHTML = "#alertOut{position: fixed;top: 0;right: 0;width: 100%;height: 100%;background-color: rgba(0,0,0,0.5);display: flex;justify-content: center;align-items: center;overflow: hidden;float: right;display: none;}#alertIn{background-color: white;box-shadow: 0px 0px 5px rgba(0,0,0,0.5);overflow: hidden;padding: 10;max-height: 300;max-width: 90%;max-width: 800;overflow-y: hidden;margin: 20;padding:10}	#alertIn *{max-width: 100%;max-height: 100%;}.invisible{display: none;}.alertFull{height:300;width:800}"
@@ -61,5 +64,3 @@
 	}
 
 	alertIn.onclick=e=>{e.stopPropagation()}
-
-ngSumir()
