@@ -42,7 +42,7 @@
 			}
 		})
 
-		setTimeout(()=>{alertIn.style.overflowY="auto"},600)
+		setTimeout(()=>{alertIn.style.overflowY="auto"},700)
 
 
 	}
