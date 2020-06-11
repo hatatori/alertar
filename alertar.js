@@ -18,6 +18,11 @@
 	function ngMostrar(a,b){
 		tempo = 2
 
+		if(a){
+			alertIn.style.maxWidth=a
+			alertIn.style.maxHeight=b
+		}
+
 		alertIn.style.overflowY="hidden"
 		alertOut.style.transition=tempo/10+"s"
 
@@ -70,6 +75,6 @@
 			// alertIn.style.maxHeight = b
 
 
-	}
+		}
 
-	alertIn.onclick=e=>{e.stopPropagation()}
+		alertIn.onclick=e=>{e.stopPropagation()}
