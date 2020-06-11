@@ -24,7 +24,7 @@
 		}
 
 		alertIn.style.overflowY="hidden"
-		alertOut.style.transition=tempo/10+"s"
+		alertOut.style.transition=0.5+"s"
 
 		alertIn.style.maxHeight=0
 		alertOut.style.display="flex"
@@ -35,19 +35,19 @@
 		},tempo*2)
 
 		setTimeout(()=>{		
-			alertIn.style.transition=tempo-1+"s"
+			alertIn.style.transition=0.5+"s"
 
 			if(typeof(a) == 'undefined' && typeof(b) == 'undefined'){
 				alertIn.style.maxHeight=350
 			}
 			else{
-				alertIn.style.transition=1+"s"
+				alertIn.style.transition=0.5+"s"
 				alertIn.style.maxWidth=a
 				alertIn.style.maxHeight=b
 			}
 		})
 
-		setTimeout(()=>{alertIn.style.overflowY="auto"},700)
+		setTimeout(()=>{alertIn.style.overflowY="auto"},300)
 
 
 	}
